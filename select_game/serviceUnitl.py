@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
-from select_game.Db_unitl import read_Db
-from select_game.JpGame import startNetQuest
+from Db_unitl import read_Db
+from JpGame import startNetQuest
 from flask import request
 import time
 import random
