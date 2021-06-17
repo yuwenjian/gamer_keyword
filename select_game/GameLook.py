@@ -3,7 +3,7 @@ import time
 import random
 import requests
 from lxml import etree
-from select_game.Db_unitl import write_Db
+from Db_unitl import write_Db
 keyword = ""
 def startRequest(keyword, gameLookBaseUrl2):
     gameLookBaseUrl = "http://www.gamelook.com.cn/?s=" + keyword

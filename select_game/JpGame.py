@@ -3,7 +3,7 @@ import random
 import re
 import time
 import requests
-from select_game.Db_unitl import write_Db
+from Db_unitl import write_Db
 
 totalUrlResult = ""
 def startNetQuest(startNum, keyword):
