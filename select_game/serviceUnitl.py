@@ -33,4 +33,4 @@ def getNews():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='172.17.0.13', port=5000, debug=True)
