@@ -4,17 +4,20 @@ from JpGame import startNetQuest
 from flask import request
 import time
 import random
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
+cors = CORS(app)
 
 
 # 开始爬虫
 @app.route('/startGrab', methods=['GET'])
+@cross_origin()
 def startGrab():
     request_data = request.args.to_dict()
     keyword = request_data.get('keyword')
-    pages =[0,1,2,3,4,5]
+    pages =[0, 1, 2, 3, 4, 5]
     for page in pages:
         time.sleep(random.randint(10, 20))
         startNetQuest((page * 20), keyword)
@@ -22,6 +25,7 @@ def startGrab():
 
 # 获取爬取的信息
 @app.route('/getnew', methods=['GET'])
+@cross_origin()
 def getNews():
     request_data = request.args.to_dict()
     keyword = request_data.get('keyword')

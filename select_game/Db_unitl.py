@@ -13,7 +13,6 @@ def connect_Db():
 
 # 读取数据库
 def read_Db(keyword):
-
     host = 'localhost'
     user = 'root'
     password = 'Woshiyuwenjian12'
@@ -24,8 +23,6 @@ def read_Db(keyword):
     results = pd.read_sql(sql, conn)
     print(results)
     results1 = results.to_dict(orient='index')
-    print(type(results1))
-
     return results1
 
 # 写入数据
