@@ -16,7 +16,6 @@ def startNetQuest(startNum, keyword):
          "accept-language": "zh-CN,zh;q=0.9",
          "cookie": "__Secure-3PSID=9Qe67rSHAWLB2VTQ4bKxTtT8AOciSX8FHEoiKvJLH0KFwvmaV3NMxDcBFUFhbt7eRzTaiQ.; __Secure-3PAPISID=EY1AfrF_NLQTuEUA/AN99GODnGtCONPmE4; NID=216=EhwnXRkqRjvxlqNnVmKuBJUtkIYguwsBk9YT7QpDmaCrJ_pzgPEloBdyo0C8bCYVaLh4_WhyRxX8bmcKhVKTWNhQ3Y751HGb_FmPxd_oCTelka6JATVk9l1Wis4EyGD__co9zC9A-SAc-pr1hUg1ipinpIvjqVLYFJlQ4L5a2VlzKDThwqZEU9AxmE4wmo4GsgpJLIRRDw8oYk6t454zAgXvt-xx9E1GfBZUJl4xFaZaS-GHy1CvBh16uyvHkopWvGk-hpxdcCRLFmc274UlKmVL05AGLtMpww; 1P_JAR=2021-05-21-03; __Secure-3PSIDCC=AJi4QfHqGhVEkUf-J_UFVafLeW-gfCbcYOE_D1YWmj4GRTR4wWD72ujKUp-LLE1o-ffGVOtcWYo"
      }
-     print("MMMMMMNNNNN=> "+keyword)
      params = (
          ('rsz', 20),
          ('num', 20),
@@ -28,7 +27,7 @@ def startNetQuest(startNum, keyword):
          ('cx', '008277887561957062446:paqn5nbl6hs'),
          ('q', keyword),
          ('safe', 'off'),
-         ('cse_tok', 'AJvRUv1U6P73cHQfrEvCjrABnCqc:1623834446426'),
+         ('cse_tok', 'AJvRUv0JUloKV7yzTNoODS9tATSv:1624002709755'),
          ('filter', 1),
          ('sort', 'date'),
          ('exp', 'csqr,cc'),
@@ -37,7 +36,6 @@ def startNetQuest(startNum, keyword):
 
      response = requests.get(baseUrl, headers=headers, params=params, verify=False)
      UrlResult = response.text
-     print("MMMM"+UrlResult)
      parseResult(UrlResult, keyword)
 
 def parseResult(dataUrl, keyword):

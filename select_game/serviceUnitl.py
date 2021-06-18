@@ -12,14 +12,11 @@ app = Flask(__name__)
 # 开始爬虫
 @app.route('/startGrab', methods=['GET'])
 def startGrab():
-    # keyword = request.form.get('keyword')
     request_data = request.args.to_dict()
     keyword = request_data.get('keyword')
-    print("=====" +keyword)
-    pages =[0]
+    pages =[0,1,2,3,4,5]
     for page in pages:
-        # time.sleep(random.randint(20, 40))
-        time.sleep(random.randint(2, 4))
+        time.sleep(random.randint(10, 20))
         startNetQuest((page * 20), keyword)
     return jsonify({'message': "爬取完成！"})
 
@@ -33,4 +30,4 @@ def getNews():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(host='172.17.0.13', port=5000, debug=True)
+    app.run()
