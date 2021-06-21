@@ -64,6 +64,7 @@ def saveForLocalFile():
     info_data = json.load(f2)
     for item in info_data:
         del item['new_time']
+        del item['id']
         print(item)
         write_Db(item)
 
