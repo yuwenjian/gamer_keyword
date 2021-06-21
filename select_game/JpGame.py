@@ -63,12 +63,25 @@ def saveForLocalFile():
     f2 = open('new.json', 'r')
     info_data = json.load(f2)
     for item in info_data:
+
+        item["new_time"] = datetime.strptime(str(item.new_time), '%Y-%m-%d %H:%M:%S')  # 格式化为datetime类型
         print(item)
         print(type(item))
         write_Db(item)
 
+import time
+from datetime import *
+def strToTime():
+
+    datetime_str = "2021-06-21 10:19:46"
+    datetime_obj = datetime.strptime(str(datetime_str), '%Y-%m-%d %H:%M:%S')  # 格式化为datetime类型
+    # timestamp = int(time.mktime(datetime_obj.timetuple()) * 1000.0 + datetime_obj.microsecond / 1000.0)
+    ts = datetime_obj.timestamp()
+    print(ts)
+
 if __name__ == '__main__':
-    saveForLocalFile()
+    # saveForLocalFile()
+    strToTime()
     # pages =[0]
     # keyword = '配布'
     # for page in pages:
