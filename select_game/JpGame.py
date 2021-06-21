@@ -63,10 +63,8 @@ def saveForLocalFile():
     f2 = open('new.json', 'r')
     info_data = json.load(f2)
     for item in info_data:
-        print(item["new_time"])
-        item["new_time"] = datetime.strptime(str(item["new_time"]), '%Y-%m-%d %H:%M:%S')  # 格式化为datetime类型
+        del item['new_time']
         print(item)
-        print(type(item["new_time"]))
         write_Db(item)
 
 # import time
