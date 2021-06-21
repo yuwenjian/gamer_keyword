@@ -2,6 +2,8 @@ import json
 import random
 import re
 import time
+import pandas as pd
+
 import requests
 from Db_unitl import write_Db
 
@@ -27,7 +29,7 @@ def startNetQuest(startNum, keyword):
          ('cx', '008277887561957062446:paqn5nbl6hs'),
          ('q', keyword),
          ('safe', 'off'),
-         ('cse_tok', 'AJvRUv0JUloKV7yzTNoODS9tATSv:1624002709755'),
+         ('cse_tok', 'AJvRUv354AuisO-Ubn5wHmamTB2H:1624239630044'),
          ('filter', 1),
          ('sort', 'date'),
          ('exp', 'csqr,cc'),
@@ -40,6 +42,8 @@ def startNetQuest(startNum, keyword):
 
 def parseResult(dataUrl, keyword):
     aa = dataUrl[34:-2]
+    print("11111111===> " + aa)
+
     for rr in json.loads(aa)["results"]:
         str1 = rr["formattedUrl"]
         it = re.findall(r"\d+", str1)
@@ -54,10 +58,20 @@ def parseResult(dataUrl, keyword):
         print(temp)
         write_Db(temp)
 
+def saveForLocalFile():
+    # JSON到字典转化
+    f2 = open('new.json', 'r')
+    info_data = json.load(f2)
+    for item in info_data:
+        print(item)
+        print(type(item))
+        write_Db(item)
+
 if __name__ == '__main__':
-    pages =[0]
-    keyword = '配布'
-    for page in pages:
-        startNum = page * 20
-        time.sleep(random.randint(20, 40))
-        startNetQuest(startNum, keyword)
+    saveForLocalFile()
+    # pages =[0]
+    # keyword = '配布'
+    # for page in pages:
+    #     startNum = page * 20
+    #     time.sleep(random.randint(20, 40))
+    #     startNetQuest(startNum, keyword)
